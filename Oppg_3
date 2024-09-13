@@ -1,1 +1,13 @@
 
+# bruk av 8.1.1("loading data tables") i dcic for å laste tabellen inn i pyret
+
+include gdrive-sheets
+include data-source 
+include shared-gdrive("dcic-2021", "1wyQZj_L0qqV9Ekgr9au6RX2iqt2Ga8Ep")
+
+ssid = "1RYN0i4Zx_UETVuYacgaGfnFcv4l9zd9toQTTdkQkj7g"
+event-data =
+  load-table: id,	first_name,	last_name,	email,	gender,	ip_address,	age
+    source: load-spreadsheet(ssid).sheet-by-name("o1-oppg3", true)
+  end
+
